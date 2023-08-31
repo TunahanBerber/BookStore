@@ -1,6 +1,8 @@
 using WebApi.DbOperations;
-using WebApi.Common;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using System;
+using System.Linq;
 
 namespace WebApi.BookOperations.CreateBookCs
 {
@@ -8,28 +10,25 @@ namespace WebApi.BookOperations.CreateBookCs
     {
         public CreateBookModel Model { get; set; }
         private readonly BookStoreDbContext _dbContext;
-        public CreateBookCommand(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper; // _mapper değişkeni değiştirildi
+
+        public CreateBookCommand(BookStoreDbContext dbContext, IMapper mapper) // Parametre adı düzeltildi
         {
             _dbContext = dbContext;
+            _mapper = mapper; // _mapper değişkenine parametre olarak gelen IMapper nesnesi atanıyor
         }
 
         public void Handle()
         {
             var book = _dbContext.Books.SingleOrDefault(x => x.Title == Model.Title);
 
-            if (
-                book != null)
+            if (book != null)
                 throw new InvalidOperationException("Kitap Zaten Mevcut");
 
-            book = new Book();
-            book.Title = Model.Title;
-            book.PublishDate = Model.PublishDate;
-            book.PageCount = Model.PageCount;
-            book.GenreId = Model.GenreId;
+            book = _mapper.Map<Book>(Model);
 
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
-
         }
 
         public class CreateBookModel

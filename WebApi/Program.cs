@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApi.DbOperations;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // In-Memory veritabanı bağlantısı için DbContext ekleyin
 builder.Services.AddDbContext<BookStoreDbContext>(options =>
 {
