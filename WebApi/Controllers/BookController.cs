@@ -10,6 +10,9 @@ using WebApi.BookOperations.UpdateBook;
 using static WebApi.BookOperations.UpdateBook.UpdateBookCommand;
 using WebApi.BookOperations.DeleteBook;
 using AutoMapper;
+using WebApi.BookOperations.CreateBook;
+using FluentValidation.Results;
+using FluentValidation;
 
 namespace WebApi.Controllers
 {
@@ -59,7 +62,22 @@ namespace WebApi.Controllers
             try
             {
                 command.Model = newBook;
+                //  Validasyonu buraya ekliyoruz ki hata varsa hiç olmasın.
+                CreateBookCommandValidator validator = new CreateBookCommandValidator();
+                // ValidationResult result = validator.Validate(command);
+                validator.ValidateAndThrow(command);
                 command.Handle();
+                // if (result.IsValid)  //! is valid propu bütün kurallardan geçip geçmediğini kontrol eder geçtiyse true geçmediyse false döner
+                //     foreach (var item in result.Errors)
+                //     {
+                //         Console.WriteLine("Özellik : " + item.PropertyName + "-ErrorMessage : " + item.ErrorMessage);
+                //     }
+                // else
+                // {
+                //     command.Handle();
+                // }
+                
+
             }
             catch (Exception ex)
             {

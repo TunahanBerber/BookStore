@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "00rqKJantCxuGi8fuyN2UXD8hk2xc2hhXEDHzD0rivj0TQi+AAWqyBjgM1jeZ5Wa3h6NGCak6cuaoOOTSu0V0Q==",
+  "dgSpecHash": "zSCzBkTTh9eSorG+t7f6fUJfDRSZ35e7V8QIXqS/RJMYArBMBamOFNbtHlKvVd1/QNHt94NmqqNGcpzEnfSziQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\tuna\\Desktop\\BookStore\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tuna\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\tuna\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\tuna\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\tuna\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\tuna\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tuna\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.6\\microsoft.entityframeworkcore.5.0.6.nupkg.sha512",
